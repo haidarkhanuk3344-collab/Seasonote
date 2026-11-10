@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>四季 · 一方小世界</title>
+<script>if(window.__SEASONS_WIDGET__ || new URLSearchParams(location.search).get('mode')==='widget') document.documentElement.classList.add('widget'); window.__errors=[]; addEventListener('error',e=>window.__errors.push(e.message)); addEventListener('unhandledrejection',e=>window.__errors.push(String(e.reason)));</script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar"><a class="brand" href="./"><span class="brand-mark">◒</span><span>四季<small>A LITTLE WORLD</small></span></a><div class="top-actions"><button id="capture" class="quiet" title="保存透明背景 PNG">保存此刻 <span>↗</span></button><button id="focus" class="quiet" title="隐藏界面，Esc 返回">沉浸模式 <span>⛶</span></button></div></header>
+<main>
+<div class="scene-heading"><div class="eyebrow">风经过，四季也经过。</div><h1 id="season-title">春生</h1><p id="season-desc">把一场细雨，留在桌面上。</p></div>
+<div class="world" id="world"><canvas id="scene" aria-label="可交互的四季转盘。拖动盘面改变季节，点击奶牛猫或蝴蝶互动。" tabindex="0"></canvas><div id="loading">正在唤醒这一方小世界…</div><div id="failure" hidden>场景未能载入。请通过「打开预览.command」启动。<br><span id="failure-message"></span></div></div>
+<div class="scene-note"><span class="live-dot"></span><span id="weather-label">微风 · 细雨</span><span class="note-divider"></span><span>拖动指针穿过四季 · 点击奶牛猫或蝴蝶</span></div>
+<section class="console" aria-label="场景控制">
+<div class="transport"><button id="play" aria-label="暂停季节流转" title="暂停季节，天气与猫继续活动">Ⅱ</button><div class="season-track"><input id="timeline" type="range" min="0" max="9999" value="0" aria-label="四季进度"><div class="season-labels"><button data-season="0">春<span>SPRING</span></button><button data-season="1">夏<span>SUMMER</span></button><button data-season="2">秋<span>AUTUMN</span></button><button data-season="3">冬<span>WINTER</span></button></div></div></div>
+<div class="settings"><label>流转<select id="speed"><option value="25.132741228718345">原速 · 连续四季</option><option value="60">1 分钟 / 轮</option><option value="120">2 分钟 / 轮</option><option value="300">5 分钟 / 轮</option></select></label><label>天气<select id="weather"><option value="auto">随四季</option><option value="wind">风</option><option value="rain">雨</option><option value="snow">雪</option><option value="clear">晴</option></select></label><label>画质<select id="quality"><option value="high">精细</option><option value="medium">均衡</option><option value="low">轻盈</option></select></label><label>衬底<select id="backdrop"><option value="dark">深色</option><option value="light">浅色</option><option value="blue">桌面蓝</option></select></label></div>
+</section>
+</main><footer><span>一只奶牛猫，一只蝴蝶，一整个四季。</span><span>本地运行 · 无声陪伴</span></footer><button id="exit-focus" hidden>退出沉浸 <kbd>Esc</kbd></button>
+<script type="module" src="app.js"></script>
+</body></html>

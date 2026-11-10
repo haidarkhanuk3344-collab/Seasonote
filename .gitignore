@@ -1,0 +1,19 @@
+# Generated applications, builds and local settings
+*.app/
+**/bin/Debug/
+**/bin/Release/
+**/obj/
+**/dist/
+artifacts/
+node_modules/
+.DS_Store
+._*
+*.zip
+*.pdb
+.env
+.env.*
+!.env.example
+**/results.json
+*.log
+
+**/node_modules

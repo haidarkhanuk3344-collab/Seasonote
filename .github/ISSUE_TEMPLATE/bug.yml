@@ -1,0 +1,20 @@
+name: Bug report / 问题反馈
+description: Report a Seasonote problem
+title: "[Bug] "
+body:
+  - type: textarea
+    attributes:
+      label: 系统与版本 / Environment
+      description: macOS or Windows version, x64/ARM64, Seasonote version, player version
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: 复现步骤与现象 / Reproduction
+      description: What did you do, what happened, and what did you expect?
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: 可选截图或诊断 / Optional evidence
+      description: Check for personal information before uploading. Do not include credentials.

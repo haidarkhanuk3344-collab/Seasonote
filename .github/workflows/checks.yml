@@ -1,0 +1,37 @@
+name: Source checks
+on: [push, pull_request]
+jobs:
+  shared-and-model-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+      - run: npm install
+        working-directory: tests/music-ui
+      - run: node tests.mjs
+        working-directory: tests/music-ui
+      - run: dotnet run --project tests/windows-media/BehaviorTests.csproj
+      - run: dotnet run --project tests/server/Test.csproj
+      - run: dotnet run --project tests/placement/Test.csproj
+  windows-compile:
+    runs-on: windows-latest
+    strategy:
+      matrix:
+        runtime: [win-x64, win-arm64]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+      - shell: pwsh
+        run: ./scripts/build-windows.ps1 -Runtime ${{ matrix.runtime }}
+  mac-compile:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: zsh seasons/macos/build.sh
